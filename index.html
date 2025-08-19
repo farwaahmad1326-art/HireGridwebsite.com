@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireGrid - Elite Talent Acquisition Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            200: '#bcccdc',
+                            300: '#9fb3c8',
+                            400: '#829ab1',
+                            500: '#627d98',
+                            600: '#486581',
+                            700: '#334e68',
+                            800: '#243b53',
+                            900: '#102a43',
+                            950: '#0a1929'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a1929 0%, #102a43 50%, #243b53 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body class="bg-navy-950 text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-400">
+                    HireGrid
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-blue-400 transition-colors">Home</a>
+                    <a href="#services" class="nav-link text-gray-300 hover:text-blue-400 transition-colors">Services</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-blue-400 transition-colors">About</a>
+                    <a href="#leadership" class="nav-link text-gray-300 hover:text-blue-400 transition-colors">Leadership</a>
+                    <a href="#clients" class="nav-link text-gray-300 hover:text-blue-400 transition-colors">Clients</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-t border-navy-700">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-gray-300 hover:text-blue-400">Home</a>
+                <a href="#services" class="block text-gray-300 hover:text-blue-400">Services</a>
+                <a href="#about" class="block text-gray-300 hover:text-blue-400">About</a>
+                <a href="#leadership" class="block text-gray-300 hover:text-blue-400">Leadership</a>
+                <a href="#clients" class="block text-gray-300 hover:text-blue-400">Clients</a>
+                <a href="#contact" class="block text-gray-300 hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Elite Talent
+                        <span class="text-blue-400">Acquisition</span>
+                        Solutions
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Connecting Pakistan's leading enterprises with exceptional talent through strategic recruitment excellence and unparalleled industry expertise.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToSection('contact')" class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold transition-all hover-lift">
+                            Partner With Us
+                        </button>
+                        <button onclick="scrollToSection('services')" class="border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-navy-950 px-8 py-4 rounded-lg font-semibold transition-all">
+                            Our Services
+                        </button>
+                    </div>
+                </div>
+                <div class="fade-in stagger-2">
+                    <div class="glass-effect rounded-2xl p-8 hover-lift">
+                        <div class="text-center">
+                            <div class="w-24 h-24 bg-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Strategic Recruitment</h3>
+                            <p class="text-gray-300">Precision-driven talent acquisition tailored to your organizational objectives and culture.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-navy-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-6">Comprehensive Recruitment Solutions</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    We deliver end-to-end talent acquisition services designed to meet the sophisticated needs of Pakistan's premier organizations.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-effect rounded-xl p-8 hover-lift fade-in stagger-1">
+                    <div class="w-16 h-16 bg-blue-600 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Executive Search</h3>
+                    <p class="text-gray-300">Confidential recruitment of C-suite and senior leadership positions with extensive market intelligence and discretion.</p>
+                </div>
+
+                <div class="glass-effect rounded-xl p-8 hover-lift fade-in stagger-2">
+                    <div class="w-16 h-16 bg-blue-600 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Specialized Recruitment</h3>
+                    <p class="text-gray-300">Industry-specific talent acquisition across technology, finance, healthcare, manufacturing, and emerging sectors.</p>
+                </div>
+
+                <div class="glass-effect rounded-xl p-8 hover-lift fade-in stagger-3">
+                    <div class="w-16 h-16 bg-blue-600 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Market Intelligence</h3>
+                    <p class="text-gray-300">Comprehensive salary benchmarking, talent mapping, and competitive intelligence to inform strategic decisions.</p>
+                </div>
+
+                <div class="glass-effect rounded-xl p-8 hover-lift fade-in stagger-1">
+                    <div class="w-16 h-16 bg-blue-600 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Rapid Deployment</h3>
+                    <p class="text-gray-300">Accelerated recruitment processes for urgent hiring needs without compromising quality or cultural fit.</p>
+                </div>
+
+                <div class="glass-effect rounded-xl p-8 hover-lift fade-in stagger-2">
+                    <div class="w-16 h-16 bg-blue-600 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Talent Advisory</h3>
+                    <p class="text-gray-300">Strategic consulting on organizational design, succession planning, and talent retention strategies.</p>
+                </div>
+
+                <div class="glass-effect rounded-xl p-8 hover-lift fade-in stagger-3">
+                    <div class="w-16 h-16 bg-blue-600 rounded-lg mb-6 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Quality Assurance</h3>
+                    <p class="text-gray-300">Rigorous candidate assessment, background verification, and guarantee periods ensuring optimal placement success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-navy-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl font-bold mb-6">Elevating Pakistan's Corporate Landscape</h2>
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        HireGrid stands as Pakistan's premier boutique recruitment consultancy, dedicated to connecting exceptional talent with visionary organizations. Our deep understanding of the local market, combined with international best practices, positions us as the trusted partner for companies seeking transformational hires.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        We believe that the right talent is the cornerstone of organizational success. Our meticulous approach ensures that every placement contributes to your company's strategic objectives and cultural evolution.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-400 mb-2">500+</div>
+                            <div class="text-gray-300">Successful Placements</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-400 mb-2">98%</div>
+                            <div class="text-gray-300">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in stagger-2">
+                    <div class="glass-effect rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-center">Our Commitment</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">Confidentiality</h4>
+                                    <p class="text-gray-300 text-sm">Absolute discretion in all executive search and sensitive recruitment assignments.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">Excellence</h4>
+                                    <p class="text-gray-300 text-sm">Uncompromising standards in candidate assessment and client service delivery.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                                <div>
+                                    <h4 class="font-semibold mb-2">Partnership</h4>
+                                    <p class="text-gray-300 text-sm">Long-term relationships built on trust, transparency, and mutual success.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="py-20 bg-navy-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-6">Executive Leadership</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Visionary leadership driving innovation in Pakistan's recruitment landscape.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-effect rounded-2xl p-12 text-center hover-lift fade-in">
+                    <!-- CEO Photo Placeholder - Ready for manual addition -->
+                   <div class="max-w-4xl mx-auto">
+    <div class="glass-effect rounded-2xl p-12 text-center hover-lift fade-in">
+
+        <!-- CEO Photo Added -->
+        <div class="w-48 h-48 rounded-full mx-auto mb-8 overflow-hidden">
+            <img src="images/myphoto.jpg" alt="Farwa Ahmad" class="w-full h-full object-cover">
+        </div>
+
+        <h3 class="text-3xl font-bold mb-4">Farwa Ahmad</h3>
+        <p class="text-xl text-blue-400 mb-6">Chief Executive Officer & Founder</p>
+        <p class="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+            Leading HireGrid with a vision to transform Pakistan's talent acquisition landscape through strategic excellence and innovative recruitment solutions. With extensive experience in executive search and organizational development, Farwa Ahmad brings unparalleled expertise to connecting exceptional talent with visionary enterprises.
+        </p>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- Clients Section -->
+<section id="clients" class="py-20 bg-navy-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+            <h2 class="text-4xl font-bold mb-6">Future Partnership Industries</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                We are privileged to partner with Pakistan's most respected organizations across diverse industries.
+            </p>
+        </div>
+
+        <!-- Client Logos Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16">
+
+            <div class="glass-effect rounded-xl p-6 flex items-center justify-center h-24 hover-lift fade-in stagger-1">
+                <img src="images/logo1.png" alt="Client Logo 1" class="max-h-12">
+            </div>
+
+            <div class="glass-effect rounded-xl p-6 flex items-center justify-center h-24 hover-lift fade-in stagger-2">
+                <img src="images/logo2.png" alt="Client Logo 2" class="max-h-12">
+            </div>
+
+            <div class="glass-effect rounded-xl p-6 flex items-center justify-center h-24 hover-lift fade-in stagger-3">
+                <img src="images/logo3.png" alt="Client Logo 3" class="max-h-12">
+            </div>
+
+            <div class="glass-effect rounded-xl p-6 flex items-center justify-center h-24 hover-lift fade-in stagger-1">
+                <img src="images/logo4.png" alt="Client Logo 4" class="max-h-12">
+            </div>
+
+            <div class="glass-effect rounded-xl p-6 flex items-center justify-center h-24 hover-lift fade-in stagger-2">
+                <img src="images/logo5.png" alt="Client Logo 5" class="max-h-12">
+            </div>
+
+            <div class="glass-effect rounded-xl p-6 flex items-center justify-center h-24 hover-lift fade-in stagger-3">
+                <img src="images/logo6.png" alt="Client Logo 6" class="max-h-12">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+                </div>
+            </div>
+
+            <div class="text-center fade-in">
+                <p class="text-lg text-gray-300 mb-8">
+                    From multinational corporations to innovative startups, we've successfully placed talent across:
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="glass-effect rounded-xl p-6">
+                        <h4 class="font-semibold text-blue-400 mb-2">Technology & Fintech</h4>
+                        <p class="text-sm text-gray-300">Digital transformation leaders and financial innovators</p>
+                    </div>
+                    <div class="glass-effect rounded-xl p-6">
+                        <h4 class="font-semibold text-blue-400 mb-2">Manufacturing & Energy</h4>
+                        <p class="text-sm text-gray-300">Industrial giants and sustainable energy pioneers</p>
+                    </div>
+                    <div class="glass-effect rounded-xl p-6">
+                        <h4 class="font-semibold text-blue-400 mb-2">Healthcare & Pharma</h4>
+                        <p class="text-sm text-gray-300">Medical institutions and pharmaceutical leaders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-6">Partner With HireGrid</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Ready to elevate your organization with exceptional talent? Let's discuss your strategic recruitment needs.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <div class="glass-effect rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-8">Get In Touch</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-300">farwa.hiregrid@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-300">+92 310 4483366</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Location</h4>
+                                    <p class="text-gray-300">Pakistan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in stagger-2">
+                    <div class="glass-effect rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-8">Schedule a Consultation</h3>
+                        <form class="space-y-6" onsubmit="handleFormSubmit(event)">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Company Name</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors">
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Your Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Position</label>
+                                    <input type="text" required class="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" required class="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Recruitment Needs</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 bg-navy-800 border border-navy-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors" placeholder="Describe your hiring requirements, positions, and timeline..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold transition-all hover-lift">
+                                Request Consultation
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 py-12 border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="text-2xl font-bold text-blue-400 mb-4">HireGrid</div>
+                    <p class="text-gray-400 mb-4">Elite Talent Acquisition Solutions</p>
+                    <p class="text-sm text-gray-500">Connecting exceptional talent with visionary organizations across Pakistan.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>Executive Search</li>
+                        <li>Specialized Recruitment</li>
+                        <li>Market Intelligence</li>
+                        <li>Talent Advisory</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p>farwa.hiregrid@gmail.com</p>
+                        <p>+92 310 4483366</p>
+                        <p>Pakistan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-navy-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2024 HireGrid. All rights reserved. | Elite Talent Acquisition Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Download Button -->
+    <button id="download-btn" class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg hover-lift z-40">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-4-4m4 4l4-4m-4-4V3"></path>
+        </svg>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Navigation link smooth scrolling
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your interest! This is a demo form. In the live version, this would send your consultation request directly to HireGrid.');
+        }
+
+        // Download functionality
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const element = document.documentElement;
+            const opt = {
+                margin: 0,
+                filename: 'HireGrid-Website.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            
+            // Simple download simulation
+            const blob = new Blob([document.documentElement.outerHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'HireGrid-Website.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = ['home', 'services', 'about', 'leadership', 'clients', 'contact'];
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                const rect = element.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    current = section;
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-400');
+                link.classList.add('text-gray-300');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.remove('text-gray-300');
+                    link.classList.add('text-blue-400');
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970d9af175b824d9',t:'MTc1NTQ4MDIwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
